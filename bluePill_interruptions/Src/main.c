@@ -24,6 +24,10 @@
 
 int main(void)
 {
+	// 1. Manually pend the pending bit for the USART3 IRQ number in NVIC
+
+	// 2. Enable the USART3 IRQ number in NVIC
+
     /* Loop forever */
 	for(;;);
 }
