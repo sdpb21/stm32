@@ -28,7 +28,7 @@
 int main(void)
 {
 	// 1. Manually pend the pending bit for the USART3 IRQ number in NVIC
-	uint32_t *pISPR1 = (uint32*)0xE000E204;
+	uint32_t *pISPR1 = (uint32_t*)0xE000E204;
 
 	*pISPR1 |= ( 1 << (USART3_IRQNO % 32));	// Sets the bit for the interruption
 
