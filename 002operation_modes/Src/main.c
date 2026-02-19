@@ -22,16 +22,21 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
-// This function executes in thread mode of the processor.
+// This function executes in THREAD MODE of the processor.
 void generate_interrupt()
 {
 	uint32_t *pSTIR  = (uint32_t *)0xE000EF00;
 	uint32_t *pISERO = (uint32_t *)0xE000E100;
 
 	// Enable IRQ3 interrupt
+	*pISERO |= (1 << 3);
+
+	// Generate an interrupt from software for IRQ3
+	*pSTIR = (3 & 0x1FF);
+
 }
 
-// This function executes in thread mode of the processor.
+// This function executes in THREAD MODE of the processor.
 int main(void)
 {
 	printf("In thread mode: before interrupt\n");
@@ -41,4 +46,10 @@ int main(void)
 	printf("In thread mode: after interrupt\n");
     /* Loop forever */
 	for(;;);
+}
+
+// This function (ISR) executes in HANDLER MODE of the processor.
+void RTC_WKUP_IRQHandler(void)
+{
+	printf("In handler mode: ISR\n");
 }
