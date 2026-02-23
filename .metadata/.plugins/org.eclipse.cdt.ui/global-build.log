@@ -1,15 +1,38 @@
-18:37:45 **** Incremental Build of configuration Debug for project 001helloWorldDisc1 ****
+17:23:54 **** Incremental Build of configuration Debug for project 002operation_modes ****
 make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
 arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc -o "001helloWorldDisc1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/zxcv/Documents/stm32/001helloWorldDisc1/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001helloWorldDisc1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 001helloWorldDisc1.elf
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "002operation_modes.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/zxcv/Documents/stm32/002operation_modes/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002operation_modes.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002operation_modes.elf
  
-arm-none-eabi-size  001helloWorldDisc1.elf 
-arm-none-eabi-objdump -h -S 001helloWorldDisc1.elf  > "001helloWorldDisc1.list"
+arm-none-eabi-size  002operation_modes.elf 
+arm-none-eabi-objdump -h -S 002operation_modes.elf  > "002operation_modes.list"
    text	   data	    bss	    dec	    hex	filename
-   3384	     92	   1900	   5376	   1500	001helloWorldDisc1.elf
+   3548	     92	   1900	   5540	   15a4	002operation_modes.elf
 Finished building: default.size.stdout
  
-Finished building: 001helloWorldDisc1.list
+Finished building: 002operation_modes.list
+ 
+17:24:33 **** Incremental Build of configuration Debug for project 002operation_modes ****
+make -j4 all 
+arm-none-eabi-size  002operation_modes.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	     92	   1900	   5540	   15a4	002operation_modes.elf
+Finished building: default.size.stdout
+ 
+17:30:47 **** Incremental Build of configuration Debug for project 002operation_modes ****
+make -j4 all 
+arm-none-eabi-size  002operation_modes.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	     92	   1900	   5540	   15a4	002operation_modes.elf
+Finished building: default.size.stdout
+ 
+16:53:04 **** Incremental Build of configuration Debug for project 002operation_modes ****
+make -j4 all 
+arm-none-eabi-size  002operation_modes.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3548	     92	   1900	   5540	   15a4	002operation_modes.elf
+Finished building: default.size.stdout
  
