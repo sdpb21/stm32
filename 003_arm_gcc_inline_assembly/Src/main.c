@@ -27,12 +27,14 @@
 
 int main(void)
 {
-	__asm volatile("LDR R1,=#0x20001000");
-	__asm volatile("LDR R2,=#0x20001004");
-	__asm volatile("LDR R0,[R1]");
-	__asm volatile("LDR R1,[R2]");
-	__asm volatile("ADD R0,R0,R1");
-	__asm volatile("STR R0,[R2]");
+	__asm volatile("LDR R1,=#0x20001000");	// Loads the immediate value in R1 (it's a 32 bit hexadecimal)
+	__asm volatile("LDR R2,=#0x20001004");	// Same as above line but with R2
+	__asm volatile("LDR R0,[R1]");			// Load in R0 the value stored in address stored in R1
+	__asm volatile("LDR R1,[R2]");			// Load in R1 the value stored in address stored in R2
+	__asm volatile("ADD R0,R0,R1");			// Add the values stored in R0 and R1 and stores the result in R0
+	__asm volatile("STR R0,[R2]");			// Stores the value of R0 in memory location stored in R2
     /* Loop forever */
 	for(;;);
+	/* To put some values in memory locations stored in R1 and R2
+	 * go to Window>Show view>Memory then click the plus button */
 }
