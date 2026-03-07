@@ -44,6 +44,15 @@ int main(void)
 	__asm volatile(code: output operand list: input operand list: clobber list).
 	"r"(val) means that the general registers will be used to store the value of
 	val, data manipulation in general. */
+
+	int control_reg;
+	// Read CONTROL register to control_reg C variable
+	__asm volatile("MRS %0,CONTROL":"=r"(control_reg));
+	/* "MRS %0,CONTROL" means that the value of the CONTROL register will be
+	 * moved to the first operand of output operands, MRS mnemonic is used in
+	 * this case because CONTROL is a special register, MRS is for move the
+	 * contents of a special register to a general-purpose register.
+	 * In "=r"(control_reg) =r means that the output operator is write only. */
     /* Loop forever */
 	for(;;);
 	/* To put some values in memory locations stored in R1 and R2
