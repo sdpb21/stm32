@@ -33,6 +33,17 @@ int main(void)
 	__asm volatile("LDR R1,[R2]");			// Load in R1 the value stored in address stored in R2
 	__asm volatile("ADD R0,R0,R1");			// Add the values stored in R0 and R1 and stores the result in R0
 	__asm volatile("STR R0,[R2]");			// Stores the value of R0 in memory location stored in R2
+
+	int val = 50;
+
+	__asm volatile("MOV R0,%0": :"r"(val));	/* Explanation: "MOV R0,%0" means
+	that the contents of variable val are going to be moved to R0, %0 indicates
+	that the value to be moved to R0 is the first operand, %1 the second and so
+	on. The blank space after the first colon indicates that there is no outputs,
+	remember the format of the inline assembly statement
+	__asm volatile(code: output operand list: input operand list: clobber list).
+	"r"(val) means that the general registers will be used to store the value of
+	val, data manipulation in general. */
     /* Loop forever */
 	for(;;);
 	/* To put some values in memory locations stored in R1 and R2
