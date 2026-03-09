@@ -53,6 +53,13 @@ int main(void)
 	 * this case because CONTROL is a special register, MRS is for move the
 	 * contents of a special register to a general-purpose register.
 	 * In "=r"(control_reg) =r means that the output operator is write only. */
+
+	// Example 4: copy the contents of a pointer into another variable.
+	int p1, *p2;
+
+	p2 = (int*)0x20000008;
+
+	__asm volatile("LDR %0,[%1]": "=r"(p1): "r"(p2));
     /* Loop forever */
 	for(;;);
 	/* To put some values in memory locations stored in R1 and R2
