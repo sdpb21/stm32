@@ -22,8 +22,19 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+/* Exercise: Calculation of bit band alias address
+ * Calculate the bit band alias address for given bit band memory address and
+ * bit position.
+ * 7th bit position of memory location 0x2000_0200 using it's alias address.
+ * */
+
+/* GENERAL FORMULA:
+ * Alias_address=Alias_base + (32*(bit_band_memory_addr - bit_band_base))+bit*4
+ * */
+
 int main(void)
 {
-    /* Loop forever */
+    uint8_t *ptr = (uint_t*)0x20000200;
+	/* Loop forever */
 	for(;;);
 }
